@@ -125,7 +125,7 @@ public class Crawler {
     	}
     }
     
-    public static void findStartingMatch(String keyword)
+    public static int findStartingMatch(String keyword)
     {
 //    	if (store.containsKey(keyword)) {
 //    		ArrayList<String> files = store.get(keyword);
@@ -138,13 +138,15 @@ public class Crawler {
 //    	else {
 //    		System.out.println("Keyword doesn't exist.");
 //    	}
-    	
+
+    	int times= 0;
     	int AS_DIFF = 0;
     	
     	Set<String> keys = store.keySet();
     	for (String key : keys) {
 			if (key.startsWith(keyword)) {
 				ArrayList<String> files = store.get(key);
+				times = files.size();
 				
 				if (AS_DIFF == 0) {
 		    		System.out.println("\n\n" + keyword + " match appears " + files.size() + " times. Here,\n");
@@ -158,6 +160,7 @@ public class Crawler {
 				}
 			}
 		}
+    	return times;
     }
     
     
