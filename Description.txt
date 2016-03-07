@@ -1,0 +1,14 @@
+GitHub repo link:
+	https://github.com/emadehsan/AP_Lab4
+	
+Working:
+	1. Indexes all the files walking through the filesystem.
+	2. For each file
+		1. Reads each line
+			Splits into words and stores in TreeMap.
+			TreeMap, Stores data in Order.
+			
+	3. On Searching, 
+		Can Match:
+			Exact word
+			Words starting with the keyword 
