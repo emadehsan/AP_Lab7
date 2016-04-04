@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Crawler {
@@ -142,9 +144,15 @@ public class Crawler {
     	int times= 0;
     	int AS_DIFF = 0;
     	
+    	String keyPattern = "(" + keyword.trim() + ")\\w+";
+    	Pattern r = Pattern.compile(keyPattern);
+    	
     	Set<String> keys = store.keySet();
     	for (String key : keys) {
-			if (key.startsWith(keyword)) {
+//			if (key.startsWith(keyword)) {
+    		Matcher matcher = r.matcher(key);
+    		
+    		if (matcher.find()) {
 				ArrayList<String> files = store.get(key);
 				times = files.size();
 				
